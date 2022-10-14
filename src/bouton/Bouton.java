@@ -5,5 +5,4 @@ import javax.swing.JButton;
 
 public interface Bouton {
 
-    
 }
