@@ -11,9 +11,6 @@ public class Jeu extends JFrame {
     public Jeu() {
         this.setLayout(null); 
 
-
-
-        
         //Chose Word
         ListeDeMots liste = new ListeDeMots("assets/liste-de-mots.txt");
         liste.chooseWord();
