@@ -44,9 +44,15 @@ public class BoutonClavier extends javax.swing.JButton implements Bouton {
     public void addListener() {
         this.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                // TODO send the letter to the game
+
             }
         });
+    }
+
+    public void removeListener() {
+        for (java.awt.event.ActionListener al : this.getActionListeners()) {
+            this.removeActionListener(al);
+        }
     }
 
 }

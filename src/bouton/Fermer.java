@@ -20,7 +20,7 @@ public class Fermer extends javax.swing.JButton implements Bouton {
 				System.exit(0);
 			}
 		});
-		this.setBackground(Color.WHITE);
+		this.setBackground(Color.GRAY);
 		this.setForeground(Color.RED);
 
 	}
