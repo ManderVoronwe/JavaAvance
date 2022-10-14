@@ -15,18 +15,6 @@ public class Jeu extends JFrame {
         this.add(mot);
         mot.setBounds(20, 30, 300, 50);
         // Chose Word
-        /*
-         * //add new word button
-         * JButton newWord = new JButton("Nouveau mot");
-         * newWord.setBounds(400, 0, 120, 30);
-         * newWord.addActionListener(new ActionListener() {
-         * public void actionPerformed(ActionEvent e) {
-         * liste.chooseWord();
-         * mot.setText(liste.getMot());
-         * }
-         * });
-         * this.add(newWord);
-         */
         NouveauMot newWord = new NouveauMot(mot);
         this.add(newWord);
 
