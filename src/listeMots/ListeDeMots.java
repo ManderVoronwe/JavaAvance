@@ -66,12 +66,12 @@ public class ListeDeMots implements Serializable {
 
 
 
-    //main test
-    public static void main(String[] args) {
-        ListeDeMots liste = new ListeDeMots("assets/liste-de-mots.txt");
-        liste.chooseWord();
-        System.out.println(liste.getMot());
+    // //main test
+    // public static void main(String[] args) {
+    //     ListeDeMots liste = new ListeDeMots("assets/liste-de-mots.txt");
+    //     liste.chooseWord();
+    //     System.out.println(liste.getMot());
 
-    }
+    // }
 
 }
