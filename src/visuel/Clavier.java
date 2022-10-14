@@ -29,7 +29,7 @@ public class Clavier {
     public void wasIncorect() {
         boutons[lastpresed].changeColor('r');
         // block event listener
-        boutons[lastpresed].removeListener();
+        boutons[lastpresed].disableListener();
 
     }
 

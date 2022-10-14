@@ -55,4 +55,12 @@ public class BoutonClavier extends javax.swing.JButton implements Bouton {
         }
     }
 
+    public void disableListener() {
+        this.setEnabled(false);
+    }
+
+    public void enableListener() {
+        this.setEnabled(true);
+    }
+
 }
