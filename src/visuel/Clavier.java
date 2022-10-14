@@ -22,15 +22,15 @@ public class Clavier {
         this.boutons = boutons;
     }
 
-    public void wasCorect() {
-        boutons[lastpresed].changeColor('g');
+    public void wasCorect(boolean corect) {
+        boutons[lastpresed].changeColor(corect ? 'g' : 'r');
+        boutons[lastpresed].disableListener();
     }
 
-    public void wasIncorect() {
-        boutons[lastpresed].changeColor('r');
-        // block event listener
-        boutons[lastpresed].disableListener();
-
+    public void reset() {
+        for (int i = 0; i < 26; i++) {
+            boutons[i].reset();
+        }
     }
 
 }
