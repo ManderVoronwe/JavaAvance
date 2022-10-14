@@ -7,9 +7,6 @@ import java.awt.Color;
 
 public class Fermer extends javax.swing.JButton implements Bouton {
 
-	/**
-	 * 
-	 */
 
 	private static final long serialVersionUID = 4695574331699134985L;
 
@@ -20,7 +17,8 @@ public class Fermer extends javax.swing.JButton implements Bouton {
 				System.exit(0);
 			}
 		});
-		this.setBackground(Color.GRAY);
+		this.setBounds(550, 0, 80, 30);
+		this.setBackground(Color.WHITE);
 		this.setForeground(Color.RED);
 
 	}
