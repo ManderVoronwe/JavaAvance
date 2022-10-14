@@ -31,6 +31,14 @@ public class BoutonClavier extends javax.swing.JButton implements Bouton {
         }
     }
 
+    public void changeColor() {
+        this.setForeground(Color.BLACK);
+    }
+
+    public void changeColor(Color color) {
+        this.setForeground(color);
+    }
+
     public char getLettre() {
         return lettre;
     }
@@ -63,4 +71,8 @@ public class BoutonClavier extends javax.swing.JButton implements Bouton {
         this.setEnabled(true);
     }
 
+    public void reset() {
+        this.changeColor();
+        this.enableListener();
+    }
 }
