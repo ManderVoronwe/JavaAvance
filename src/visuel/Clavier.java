@@ -1,7 +1,6 @@
 package visuel;
 
 import bouton.BoutonClavier;
-import java.awt.*;
 
 public class Clavier extends javax.swing.JPanel {
 
@@ -12,7 +11,6 @@ public class Clavier extends javax.swing.JPanel {
         boutons = new BoutonClavier[26];
         this.setLayout(null);
         this.setBounds(0, 535, 1000, 265);
-        this.setBackground(Color.yellow);
         for (int i = 0; i < 26; i++) {
             boutons[i] = new BoutonClavier(String.valueOf((char) (i + 'A')), mot, this, hangman);
             this.add(boutons[i]);
