@@ -16,6 +16,22 @@ public class Mot extends JLabel {
     private int nbLettresTrouvees;
     private char[] lettresAffichees;
     private char[] lettres;
+    private String testedLetters;
+
+    public Mot() {
+        super();
+        this.nbLettres = 0;
+        this.nbLettresTrouvees = 0;
+        this.lettresAffichees = new char[0];
+        this.lettres = new char[0];
+        this.testedLetters = "";
+        this.setFont(new Font("Arial", Font.BOLD, 30));
+        this.setHorizontalAlignment(JLabel.CENTER);
+        this.setVerticalAlignment(JLabel.CENTER);
+        this.setForeground(Color.BLACK);
+        this.setBackground(Color.WHITE);
+        this.setOpaque(true);
+    }
 
     public Mot(String mot) {
         super();
@@ -23,10 +39,12 @@ public class Mot extends JLabel {
         setBounds(0, 0, 500, 500);
         this.setForeground(Color.BLACK);
         this.setMot(mot);
+        this.testedLetters = "";
     }
 
     public void setMot(String mot) {
         System.out.println("mot :    " + mot);
+        this.testedLetters = "";
         this.nbLettres = mot.length();
         this.nbLettresTrouvees = 0;
         this.lettresAffichees = new char[this.nbLettres];
@@ -64,14 +82,12 @@ public class Mot extends JLabel {
 
     public boolean theLetterIsIn(char lettre) {
         boolean trouve = false;
+        this.testedLetters += lettre;
         for (int i = 0; i < this.nbLettres; i++) {
             if (this.lettres[i] == lettre) {
-                if (this.lettresAffichees[i] == '_') {
-                    this.lettresAffichees[i] = lettre;
-                    this.nbLettresTrouvees++;
-                }
+                this.lettresAffichees[i] = lettre;
+                this.nbLettresTrouvees++;
                 trouve = true;
-
             }
 
         }
@@ -80,8 +96,16 @@ public class Mot extends JLabel {
         return trouve;
     }
 
+    public String getTestedLetters() {
+        return this.testedLetters;
+    }
+
     public boolean isFound() {
         return this.nbLettresTrouvees == this.nbLettres;
+    }
+
+    public boolean isNotEmpty() {
+        return nbLettres > 0;
     }
 
 }

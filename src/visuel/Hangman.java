@@ -11,7 +11,6 @@ public class Hangman extends JPanel {
     public Hangman() {
         setLayout(null);
         setBounds(0, 35, 500, 500);
-        setBackground(Color.blue);
         this.nbErreurs = 0;
     }
 

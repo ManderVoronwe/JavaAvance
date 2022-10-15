@@ -1,6 +1,5 @@
 package main;
 
-import java.awt.*;
 import javax.swing.*;
 import bouton.*;
 import listeMots.ListeDeMots;
@@ -16,7 +15,6 @@ public class Jeu extends JFrame {
         JPanel panel1 = new JPanel();
         panel1.setLayout(null);
         panel1.setBounds(0, 0, 1000, 35);
-        panel1.setBackground(Color.red);
         Fermer fermer = new Fermer();
         fermer.setBounds(550, 0, 80, 30);
         panel1.add(fermer);
@@ -26,9 +24,6 @@ public class Jeu extends JFrame {
         panel3.add(motVisuel);
         panel3.setLayout(null);
         panel3.setBounds(500, 35, 500, 500);
-        panel3.setBackground(Color.green);
-
-        // panel for the keyboard
 
         Hangman hangman = new Hangman();
         // panel for the keyboard
