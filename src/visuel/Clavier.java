@@ -10,13 +10,13 @@ public class Clavier extends javax.swing.JPanel {
     private BoutonClavier[] boutons;
     private int lastpresed;
 
-    public Clavier(visuel.Mot mot) {
+    public Clavier(visuel.Mot mot, Hangman hangman) {
         boutons = new BoutonClavier[26];
         this.setLayout(null);
         this.setBounds(0, 535, 1000, 265);
         this.setBackground(Color.yellow);
         for (int i = 0; i < 26; i++) {
-            boutons[i] = new BoutonClavier(String.valueOf((char) (i + 'A')), mot, this);
+            boutons[i] = new BoutonClavier(String.valueOf((char) (i + 'A')), mot, this, hangman);
             this.add(boutons[i]);
         }
         for (int i = 0; i < 26; i++) {
@@ -51,18 +51,20 @@ public class Clavier extends javax.swing.JPanel {
         }
     }
 
-    public void setLastpresed(int lastpresed, boolean corect) {
+    public boolean setLastpresed(int lastpresed, boolean corect) {
         this.lastpresed = lastpresed;
         wasCorect(corect);
+        return corect;
     }
 
     public int getLastpresed() {
         return lastpresed;
     }
 
-    public void setLastpresed(char lastpresed, boolean corect) {
+    public boolean setLastpresed(char lastpresed, boolean corect) {
         this.lastpresed = lastpresed - 'A';
         wasCorect(corect);
+        return corect;
     }
 
 }
