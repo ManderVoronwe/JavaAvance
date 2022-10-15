@@ -27,7 +27,6 @@ public class Clavier extends javax.swing.JPanel {
             } else {
                 boutons[i].setBounds(280 + 60 * (i - 19), 160, 50, 50);
             }
-            // round the corners
         }
 
     }
