@@ -3,6 +3,7 @@ package bouton;
 import java.awt.Color;
 
 import visuel.Clavier;
+import visuel.Hangman;
 
 public class BoutonClavier extends javax.swing.JButton implements Bouton {
 
@@ -12,11 +13,11 @@ public class BoutonClavier extends javax.swing.JButton implements Bouton {
     private static final long serialVersionUID = -8143926993296614699L;
     private char lettre;
 
-    public BoutonClavier(String texte, visuel.Mot mot, Clavier clavier) {
+    public BoutonClavier(String texte, visuel.Mot mot, Clavier clavier, Hangman hangman) {
         super(texte);
         this.lettre = texte.charAt(0);
         this.setBackground(Color.WHITE);
-        this.addListener(mot, clavier);
+        this.addListener(mot, clavier, hangman);
     }
 
     public void changeColor(char color) {
@@ -51,10 +52,10 @@ public class BoutonClavier extends javax.swing.JButton implements Bouton {
     }
 
     // andle the event when the button is clicked and send the letter to the game
-    public void addListener(visuel.Mot mot, Clavier clavier) {
+    public void addListener(visuel.Mot mot, Clavier clavier, Hangman hangman) {
         this.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clavier.setLastpresed(lettre, mot.theLetterIsIn(lettre));
+                hangman.isError(clavier.setLastpresed(lettre, mot.theLetterIsIn(lettre)));
 
             }
         });

@@ -44,9 +44,9 @@ public class Jeu extends JFrame {
          * panel4.setBackground(Color.yellow);
          * panel4.add(clavier);
          */
-
+        Hangman hangman = new Hangman();
         // panel for the keyboard
-        Clavier clavier = new Clavier(motVisuel);
+        Clavier clavier = new Clavier(motVisuel, hangman);
 
         NouveauMot newWord = new NouveauMot(mot, motVisuel, clavier);
 
@@ -54,7 +54,7 @@ public class Jeu extends JFrame {
         // adding panel to frame
         this.add(panel1);
         // this.add(panel2);
-        Hangman hangman = new Hangman();
+
         this.add(hangman);
         this.add(panel3);
         this.add(clavier);
