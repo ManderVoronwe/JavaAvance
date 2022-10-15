@@ -16,7 +16,7 @@ public class NouveauMot extends javax.swing.JButton implements Bouton {
 	 */
 	private static final long serialVersionUID = -6229285001788031611L;
 
-	public NouveauMot(JLabel mot, Mot motVisuel, Clavier clavier) {
+	public NouveauMot(JLabel mot, Mot motVisuel, Clavier clavier, Hangman hangman) {
 		super("Nouveau mot");
 
 		ListeDeMots liste = new ListeDeMots("assets/liste-de-mots.txt");
@@ -26,6 +26,8 @@ public class NouveauMot extends javax.swing.JButton implements Bouton {
 				mot.setText("Mot à trouver : " + liste.getMot());
 				motVisuel.setMot(liste.getMot());
 				clavier.reset();
+				hangman.reset();
+
 			}
 		});
 		this.setBounds(400, 0, 120, 30);

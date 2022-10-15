@@ -48,7 +48,7 @@ public class Jeu extends JFrame {
         // panel for the keyboard
         Clavier clavier = new Clavier(motVisuel, hangman);
 
-        NouveauMot newWord = new NouveauMot(mot, motVisuel, clavier);
+        NouveauMot newWord = new NouveauMot(mot, motVisuel, clavier, hangman);
 
         panel1.add(newWord);
         // adding panel to frame

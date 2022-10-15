@@ -21,6 +21,7 @@ public class Hangman extends JPanel {
 
     public void setNbErreurs(int nbErreurs) {
         this.nbErreurs = nbErreurs;
+        repaint();
     }
 
     public void newError() {
@@ -38,6 +39,9 @@ public class Hangman extends JPanel {
         super.paintComponent(g);
         this.g = g;
         switch (nbErreurs) {
+            case 12:
+                setNbErreurs(11);
+                break;
             case 11:
                 drawRightLeg();
             case 10:
@@ -71,63 +75,91 @@ public class Hangman extends JPanel {
 
     public void drawRightLeg() {
         g.setColor(Color.black);
-        g.drawLine(300, 400, 350, 450);
+
+        ((Graphics2D) g).setStroke(new BasicStroke(4));
+        // set the width of draw
+        g.drawLine(300, 350, 350, 400);
     }
 
     public void drawLeftLeg() {
         g.setColor(Color.black);
-        g.drawLine(300, 400, 250, 450);
+
+        ((Graphics2D) g).setStroke(new BasicStroke(4));
+        g.drawLine(300, 350, 250, 400);
     }
 
     public void drawRightArm() {
         g.setColor(Color.black);
-        g.drawLine(350, 350, 300, 300);
+
+        ((Graphics2D) g).setStroke(new BasicStroke(3));
+        g.drawLine(350, 300, 300, 250);
     }
 
     public void drawLeftArm() {
         g.setColor(Color.black);
-        g.drawLine(250, 350, 300, 300);
+
+        ((Graphics2D) g).setStroke(new BasicStroke(3));
+        g.drawLine(250, 300, 300, 250);
     }
 
     public void drawBody() {
         g.setColor(Color.black);
-        g.drawLine(300, 300, 300, 400);
+
+        ((Graphics2D) g).setStroke(new BasicStroke(5));
+        g.drawLine(300, 250, 300, 350);
     }
 
     public void drawHead() {
         g.setColor(Color.black);
-        g.drawOval(275, 250, 50, 50);
+
+        ((Graphics2D) g).setStroke(new BasicStroke(5));
+        // set as plein
+        g.fillOval(275, 200, 50, 50);
+        // add eyes
+        g.setColor(Color.white);
+        g.fillOval(285, 210, 10, 10);
+        g.fillOval(305, 210, 10, 10);
+        g.setColor(Color.red);
+        ((Graphics2D) g).setStroke(new BasicStroke(2));
+        g.drawArc(285, 225, 30, 20, -180, -180);
+
     }
 
     public void drawCord() {
         g.setColor(Color.black);
-        g.drawLine(300, 200, 300, 250);
+
+        ((Graphics2D) g).setStroke(new BasicStroke(5));
+        g.drawLine(300, 150, 300, 200);
     }
 
     public void drawVerticalPole() {
         g.setColor(Color.black);
-        g.drawLine(300, 200, 400, 200);
+
+        ((Graphics2D) g).setStroke(new BasicStroke(5));
+        g.drawLine(300, 150, 100, 150);
     }
 
     public void drawSupport() {
         g.setColor(Color.black);
-        g.drawLine(400, 200, 400, 50);
+
+        ((Graphics2D) g).setStroke(new BasicStroke(5));
+        g.drawLine(100, 200, 150, 150);
     }
 
     public void drawHorizontalPole() {
         g.setColor(Color.black);
-        g.drawLine(400, 50, 100, 50);
+        ((Graphics2D) g).setStroke(new BasicStroke(5));
+        g.drawLine(100, 150, 100, 450);
     }
 
     public void drawGround() {
         g.setColor(Color.black);
-        g.drawLine(100, 50, 100, 100);
+        ((Graphics2D) g).setStroke(new BasicStroke(5));
+        g.drawLine(50, 450, 200, 450);
     }
 
     public void reset() {
-        this.nbErreurs = 0;
-
-        repaint();
+        setNbErreurs(0);
     }
 
     // public void paintComponent() {
