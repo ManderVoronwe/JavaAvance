@@ -30,7 +30,7 @@ public class Hangman extends JPanel {
             }
         }
 
-
+        // setBounds(0, 0, 300, 300);
         setBackground(Color.yellow);
         
     }

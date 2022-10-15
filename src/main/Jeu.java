@@ -5,21 +5,51 @@ import javax.swing.*;
 import java.awt.event.*;
 import bouton.*;
 import listeMots.ListeDeMots;
-
+import visuel.Hangman;
 public class Jeu extends JFrame {
 
     public Jeu() {
         ListeDeMots liste = new ListeDeMots("assets/liste-de-mots.txt");
         JLabel mot = new JLabel(liste.getMot());
         this.setLayout(null);
-        this.add(mot);
-        mot.setBounds(20, 30, 300, 50);
-        // Chose Word
+        mot.setBounds(10, 10, 300, 50);
         NouveauMot newWord = new NouveauMot(mot);
-        this.add(newWord);
 
-        // Add Quit Button
-        this.add(new Fermer());
+        //panel for the buttons
+        JPanel panel1 = new JPanel();
+        panel1.setLayout(null);
+        panel1.setBounds(0, 0, 1000, 35);
+        panel1.setBackground(Color.red);
+        panel1.add(newWord);
+        panel1.add(new Fermer());
+        panel1.add(mot);
+        
+        //panel for the hangman
+        JPanel panel2 = new JPanel();
+        panel2.setLayout(null);
+        panel2.setBounds(0, 35, 500, 500);
+        panel2.setBackground(Color.blue);
+
+        //panel for the word
+        JPanel panel3 = new JPanel();
+        panel3.setLayout(null);
+        panel3.setBounds(500, 35, 500, 500);
+        panel3.setBackground(Color.green);
+
+
+        //panel for the keyboard
+        JPanel panel4 = new JPanel();
+        panel4.setLayout(null);
+        panel4.setBounds(0, 535, 1000, 265);
+        panel4.setBackground(Color.yellow);
+
+
+        //adding panel to frame
+        this.add(panel1);
+        this.add(panel2);
+        this.add(panel3);
+        this.add(panel4);
+
 
         // Add Options to Frame
         this.setTitle("Jeu du Pendu");
