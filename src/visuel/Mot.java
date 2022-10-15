@@ -44,6 +44,19 @@ public class Mot extends JLabel {
         for (int i = 0; i < this.nbLettres; i++) {
             this.lettresAffichees[i] = '_';
             this.lettres[i] = mot.toUpperCase().charAt(i);
+            if (this.lettres[i] == 'É' || this.lettres[i] == 'È' || this.lettres[i] == 'Ê' || this.lettres[i] == 'Ë') {
+                this.lettres[i] = 'E';
+            } else if (this.lettres[i] == 'À' || this.lettres[i] == 'Â' || this.lettres[i] == 'Ä') {
+                this.lettres[i] = 'A';
+            } else if (this.lettres[i] == 'Ô' || this.lettres[i] == 'Ö') {
+                this.lettres[i] = 'O';
+            } else if (this.lettres[i] == 'Ù' || this.lettres[i] == 'Û' || this.lettres[i] == 'Ü') {
+                this.lettres[i] = 'U';
+            } else if (this.lettres[i] == 'Î' || this.lettres[i] == 'Ï') {
+                this.lettres[i] = 'I';
+            } else if (this.lettres[i] == 'Ç') {
+                this.lettres[i] = 'C';
+            }
         }
         setBounds(0, 0, 500, 500);
         // space up lettre
