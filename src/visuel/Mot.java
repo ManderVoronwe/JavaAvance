@@ -43,7 +43,7 @@ public class Mot extends JLabel {
         this.lettres = new char[this.nbLettres];
         for (int i = 0; i < this.nbLettres; i++) {
             this.lettresAffichees[i] = '_';
-            this.lettres[i] = mot.charAt(i);
+            this.lettres[i] = mot.toUpperCase().charAt(i);
         }
         setBounds(0, 0, 500, 500);
         // space up lettre
