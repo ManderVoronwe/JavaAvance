@@ -3,7 +3,6 @@ package visuel;
 import java.awt.*;
 
 import javax.swing.*;
-import java.lang.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.awt.font.*;
@@ -66,7 +65,7 @@ public class Mot extends JLabel {
     public boolean theLetterIsIn(char lettre) {
         boolean trouve = false;
         for (int i = 0; i < this.nbLettres; i++) {
-            if (this.lettres[i] == lettre) {
+            if (this.lettres[i] == lettre && this.lettresAffichees[i] == '_') {
                 this.lettresAffichees[i] = lettre;
                 this.nbLettresTrouvees++;
                 trouve = true;

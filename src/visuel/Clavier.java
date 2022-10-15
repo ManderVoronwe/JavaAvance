@@ -3,8 +3,6 @@ package visuel;
 import bouton.BoutonClavier;
 import java.awt.*;
 
-import javax.swing.border.Border;
-
 public class Clavier extends javax.swing.JPanel {
 
     private BoutonClavier[] boutons;
