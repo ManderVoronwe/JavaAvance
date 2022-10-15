@@ -55,13 +55,13 @@ public class Hangman extends JPanel {
             case 6:
                 drawHead();
             case 5:
-                drawCord();
+                drawRope();
             case 4:
-                drawVerticalPole();
+                drawHorizontalPole();
             case 3:
                 drawSupport();
             case 2:
-                drawHorizontalPole();
+                drawVerticalPole();
             case 1:
                 drawGround();
                 break;
@@ -125,18 +125,20 @@ public class Hangman extends JPanel {
 
     }
 
-    public void drawCord() {
-        g.setColor(Color.black);
+    public void drawRope() {
+        g.drawImage(new ImageIcon("assets/rope.png").getImage(), 290, 150, 10, 50, this);
+        // g.setColor(Color.black);
 
-        ((Graphics2D) g).setStroke(new BasicStroke(5));
-        g.drawLine(300, 150, 300, 200);
+        // ((Graphics2D) g).setStroke(new BasicStroke(5));
+        // g.drawLine(300, 150, 300, 200);
     }
 
-    public void drawVerticalPole() {
-        g.setColor(Color.black);
+    public void drawHorizontalPole() {
+        // set the texture to draw as wood
+        g.drawImage(new ImageIcon("assets/wood.jpg").getImage(), 100, 150, 230, 10, this);
 
-        ((Graphics2D) g).setStroke(new BasicStroke(5));
-        g.drawLine(300, 150, 100, 150);
+        // ((Graphics2D) g).setStroke(new BasicStroke(5));
+        // g.drawLine(300, 150, 100, 150);
     }
 
     public void drawSupport() {
@@ -146,16 +148,18 @@ public class Hangman extends JPanel {
         g.drawLine(100, 200, 150, 150);
     }
 
-    public void drawHorizontalPole() {
-        g.setColor(Color.black);
-        ((Graphics2D) g).setStroke(new BasicStroke(5));
-        g.drawLine(100, 150, 100, 450);
+    public void drawVerticalPole() {
+        g.drawImage(new ImageIcon("assets/wood.jpg").getImage(), 100, 150, 10, 300, this);
+        // g.setColor(Color.black);
+        // ((Graphics2D) g).setStroke(new BasicStroke(5));
+        // g.drawLine(100, 150, 100, 450);
     }
 
     public void drawGround() {
-        g.setColor(Color.black);
-        ((Graphics2D) g).setStroke(new BasicStroke(5));
-        g.drawLine(50, 450, 200, 450);
+        g.drawImage(new ImageIcon("assets/ground.jpg").getImage(), 50, 450, 200, 10, this);
+        // g.setColor(Color.black);
+        // ((Graphics2D) g).setStroke(new BasicStroke(5));
+        // .drawLine(50, 450, 200, 450);
     }
 
     public void reset() {
