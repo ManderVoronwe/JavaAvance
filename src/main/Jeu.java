@@ -10,6 +10,7 @@ public class Jeu extends JFrame {
     public Jeu() {
         ListeDeMots liste = new ListeDeMots("assets/liste-de-mots.txt");
         this.setLayout(null);
+        liste.chooseWord();
         Mot motVisuel = new Mot(liste.getMot());
         // panel for the buttons
         JPanel panel1 = new JPanel();
