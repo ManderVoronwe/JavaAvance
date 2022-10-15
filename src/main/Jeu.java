@@ -6,54 +6,58 @@ import java.awt.event.*;
 import bouton.*;
 import listeMots.ListeDeMots;
 import visuel.*;
+
 public class Jeu extends JFrame {
 
     public Jeu() {
         ListeDeMots liste = new ListeDeMots("assets/liste-de-mots.txt");
-        JLabel mot = new JLabel("Mot à trouver : "+liste.getMot());
+        JLabel mot = new JLabel("Mot à trouver : " + liste.getMot());
         this.setLayout(null);
         mot.setBounds(0, 0, 300, 50);
         Mot motVisuel = new Mot(liste.getMot());
-        NouveauMot newWord = new NouveauMot(mot, motVisuel);
-
-        //panel for the buttons
+        // panel for the buttons
         JPanel panel1 = new JPanel();
         panel1.setLayout(null);
         panel1.setBounds(0, 0, 1000, 35);
         panel1.setBackground(Color.red);
-        panel1.add(newWord);
         panel1.add(mot);
         panel1.add(new Fermer());
-        
+
         // //panel for the hangman
         // JPanel panel2 = new JPanel();
         // panel2.setLayout(null);
         // panel2.setBounds(0, 35, 500, 500);
         // panel2.setBackground(Color.blue);
 
-        //panel for the word
+        // panel for the word
         JPanel panel3 = new JPanel();
         panel3.add(motVisuel);
         panel3.setLayout(null);
         panel3.setBounds(500, 35, 500, 500);
         panel3.setBackground(Color.green);
 
+        // panel for the keyboard
+        /*
+         * JPanel panel4 = new JPanel();
+         * panel4.setLayout(null);
+         * panel4.setBounds(0, 535, 1000, 265);
+         * panel4.setBackground(Color.yellow);
+         * panel4.add(clavier);
+         */
 
-        //panel for the keyboard
-        JPanel panel4 = new JPanel();
-        panel4.setLayout(null);
-        panel4.setBounds(0, 535, 1000, 265);
-        panel4.setBackground(Color.yellow);
+        // panel for the keyboard
+        Clavier clavier = new Clavier(motVisuel);
 
+        NouveauMot newWord = new NouveauMot(mot, motVisuel, clavier);
 
-        //adding panel to frame
+        panel1.add(newWord);
+        // adding panel to frame
         this.add(panel1);
         // this.add(panel2);
         Hangman hangman = new Hangman();
         this.add(hangman);
         this.add(panel3);
-        this.add(panel4);
-
+        this.add(clavier);
 
         // Add Options to Frame
         this.setTitle("Jeu du Pendu");
