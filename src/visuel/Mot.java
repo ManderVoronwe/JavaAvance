@@ -21,18 +21,9 @@ public class Mot extends JLabel {
     public Mot(String mot) {
         super();
         System.out.println("mot :    " + mot);
-        this.nbLettres = mot.length();
-        this.nbLettresTrouvees = 0;
-        this.lettresAffichees = new char[this.nbLettres];
-        this.lettres = new char[this.nbLettres];
-        for (int i = 0; i < this.nbLettres; i++) {
-            this.lettresAffichees[i] = '_';
-            this.lettres[i] = mot.charAt(i);
-        }
         setBounds(0, 0, 500, 500);
-        this.setText(String.valueOf(this.lettresAffichees));
-        this.setFont(new Font("Arial", Font.BOLD, 20));
         this.setForeground(Color.BLACK);
+        this.setMot(mot);
     }
 
     public void setMot(String mot) {
