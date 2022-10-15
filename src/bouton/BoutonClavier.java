@@ -55,8 +55,10 @@ public class BoutonClavier extends javax.swing.JButton implements Bouton {
     public void addListener(visuel.Mot mot, Clavier clavier, Hangman hangman) {
         this.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                hangman.isError(clavier.setLastpresed(lettre, mot.theLetterIsIn(lettre)));
-
+                hangman.isError(clavier.setLastpresed(lettre, mot.theLetterIsIn(lettre)), mot, clavier);
+                if (mot.isFound()) {
+                    hangman.win(true, mot, clavier);
+                }
             }
         });
     }

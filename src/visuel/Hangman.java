@@ -1,8 +1,8 @@
 package visuel;
 
 import javax.swing.*;
+
 import java.awt.*;
-import java.util.logging.Handler;
 
 public class Hangman extends JPanel {
     private Graphics g;
@@ -29,10 +29,34 @@ public class Hangman extends JPanel {
         repaint();
     }
 
-    public void isError(boolean corect) {
-        if (!corect) {
-            newError();
+    public void isError(boolean corect, visuel.Mot mot, Clavier clavier) {
+        this.nbErreurs++;
+        repaint();
+        if (nbErreurs > 10) {
+            // new frame
+            win(false, mot, clavier);
+
         }
+    }
+
+    public void win(boolean win, visuel.Mot motVisuel, Clavier clavier) {
+        JFrame frame = new JFrame("Game Over");
+        frame.setSize(300, 250);
+        frame.setVisible(true);
+        frame.setLocationRelativeTo(null);
+        frame.setLayout(null);
+        JLabel label = new JLabel("Game Over");
+        label.setBounds(100, 0, 300, 100);
+        bouton.NouveauMot newWord = new bouton.NouveauMot(motVisuel, clavier, this);
+        newWord.addActionListener(e -> {
+            frame.dispose();
+        });
+        bouton.Fermer fermer = new bouton.Fermer();
+        newWord.setBounds(0, 100, 100, 30);
+        fermer.setBounds(100, 100, 100, 30);
+        frame.add(label);
+        frame.add(newWord);
+        frame.add(fermer);
     }
 
     public void paintComponent(Graphics g) {
