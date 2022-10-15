@@ -65,11 +65,15 @@ public class Mot extends JLabel {
     public boolean theLetterIsIn(char lettre) {
         boolean trouve = false;
         for (int i = 0; i < this.nbLettres; i++) {
-            if (this.lettres[i] == lettre && this.lettresAffichees[i] == '_') {
-                this.lettresAffichees[i] = lettre;
-                this.nbLettresTrouvees++;
+            if (this.lettres[i] == lettre) {
+                if (this.lettresAffichees[i] == '_') {
+                    this.lettresAffichees[i] = lettre;
+                    this.nbLettresTrouvees++;
+                }
                 trouve = true;
+
             }
+
         }
         this.setText(String.valueOf(this.lettresAffichees));
         this.updateUI();
