@@ -49,7 +49,7 @@ public class Jeu extends JFrame {
          */
 
         // panel for the keyboard
-        Clavier clavier = new Clavier();
+        Clavier clavier = new Clavier(motVisuel);
 
         // adding panel to frame
         this.add(panel1);

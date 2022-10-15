@@ -2,6 +2,8 @@ package bouton;
 
 import java.awt.Color;
 
+import visuel.Clavier;
+
 public class BoutonClavier extends javax.swing.JButton implements Bouton {
 
     /**
@@ -9,12 +11,16 @@ public class BoutonClavier extends javax.swing.JButton implements Bouton {
      */
     private static final long serialVersionUID = -8143926993296614699L;
     private char lettre;
+    private visuel.Mot mot;
+    private Clavier clavier;
 
-    public BoutonClavier(String texte) {
+    public BoutonClavier(String texte, visuel.Mot mot, Clavier clavier) {
         super(texte);
         this.lettre = texte.charAt(0);
         this.setBackground(Color.WHITE);
         this.addListener();
+        this.mot = mot;
+        this.clavier = clavier;
     }
 
     public void changeColor(char color) {
@@ -52,7 +58,11 @@ public class BoutonClavier extends javax.swing.JButton implements Bouton {
     public void addListener() {
         this.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-
+                if (mot.theLetterIsIn(lettre)) {
+                    changeColor('g');
+                } else {
+                    changeColor('r');
+                }
             }
         });
     }

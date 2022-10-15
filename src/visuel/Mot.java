@@ -69,6 +69,7 @@ public class Mot extends JLabel {
             }
         }
         this.setText(String.valueOf(this.lettresAffichees));
+        this.updateUI();
         return trouve;
     }
 
