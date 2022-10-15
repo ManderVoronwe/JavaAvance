@@ -6,15 +6,13 @@ import java.util.logging.Handler;
 
 public class Hangman extends JPanel {
     private Graphics g;
+    private int nbErreurs = 0;
 
 
     public Hangman(){
         setLayout(null);
         setBounds(0, 35, 500, 500);
         setBackground(Color.blue);
-        
-
-
     }
 
     // public void paintComponent() {
