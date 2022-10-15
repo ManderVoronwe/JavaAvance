@@ -30,6 +30,8 @@ public class Hangman extends JPanel {
     }
 
     public void isError(boolean corect, visuel.Mot mot, Clavier clavier) {
+        if (corect)
+            return;
         this.nbErreurs++;
         repaint();
         if (nbErreurs > 10) {
@@ -40,12 +42,12 @@ public class Hangman extends JPanel {
     }
 
     public void win(boolean win, visuel.Mot motVisuel, Clavier clavier) {
-        JFrame frame = new JFrame("Game Over");
+        JFrame frame = new JFrame((win ? "Bien Joué" : "Game Over"));
         frame.setSize(300, 250);
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
         frame.setLayout(null);
-        JLabel label = new JLabel("Game Over");
+        JLabel label = new JLabel((win ? "Bien Joué" : "Game Over"));
         label.setBounds(100, 0, 300, 100);
         bouton.NouveauMot newWord = new bouton.NouveauMot(motVisuel, clavier, this);
         newWord.addActionListener(e -> {
