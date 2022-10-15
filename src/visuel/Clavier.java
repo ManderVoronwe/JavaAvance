@@ -40,8 +40,9 @@ public class Clavier extends javax.swing.JPanel {
     }
 
     public void wasCorect(boolean corect) {
+        // boutons[lastpresed].disableListener();
+
         boutons[lastpresed].changeColor(corect ? 'g' : 'r');
-        boutons[lastpresed].disableListener();
     }
 
     public void reset() {

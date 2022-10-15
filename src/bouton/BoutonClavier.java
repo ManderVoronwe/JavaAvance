@@ -54,11 +54,8 @@ public class BoutonClavier extends javax.swing.JButton implements Bouton {
     public void addListener(visuel.Mot mot, Clavier clavier) {
         this.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                if (mot.theLetterIsIn(lettre)) {
-                    changeColor('g');
-                } else {
-                    changeColor('r');
-                }
+                clavier.setLastpresed(lettre, mot.theLetterIsIn(lettre));
+
             }
         });
     }

@@ -15,14 +15,11 @@ public class Jeu extends JFrame {
         this.setLayout(null);
         mot.setBounds(0, 0, 300, 50);
         Mot motVisuel = new Mot(liste.getMot());
-        NouveauMot newWord = new NouveauMot(mot, motVisuel);
-
         // panel for the buttons
         JPanel panel1 = new JPanel();
         panel1.setLayout(null);
         panel1.setBounds(0, 0, 1000, 35);
         panel1.setBackground(Color.red);
-        panel1.add(newWord);
         panel1.add(mot);
         panel1.add(new Fermer());
 
@@ -51,6 +48,9 @@ public class Jeu extends JFrame {
         // panel for the keyboard
         Clavier clavier = new Clavier(motVisuel);
 
+        NouveauMot newWord = new NouveauMot(mot, motVisuel, clavier);
+
+        panel1.add(newWord);
         // adding panel to frame
         this.add(panel1);
         // this.add(panel2);
