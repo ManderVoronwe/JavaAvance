@@ -1,6 +1,7 @@
 package listeMots;
 
 import java.io.Serializable;
+import java.nio.charset.StandardCharsets;
 import java.io.*;
 
 public class ListeDeMots implements Serializable {
@@ -48,16 +49,13 @@ public class ListeDeMots implements Serializable {
     public void chooseWord() {
         int total_lines = countLines();
         int random = (int) (Math.random() * total_lines);
-        try {
-            BufferedReader fichier = new BufferedReader(new FileReader(this.ListeDeMots));
+        try (FileReader file = new FileReader(this.ListeDeMots, StandardCharsets.UTF_8);
+                BufferedReader fichier = new BufferedReader(file);) {
+
             for (int i = 0; i < random; i++) {
                 fichier.readLine();
             }
             this.Mot = fichier.readLine();
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
             fichier.close();
         } catch (Exception e) {
             e.printStackTrace();

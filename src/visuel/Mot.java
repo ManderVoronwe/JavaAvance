@@ -43,15 +43,17 @@ public class Mot extends JLabel {
     }
 
     public void setMot(String mot) {
-        System.out.println("mot :    " + mot);
+
         this.testedLetters = "";
         this.nbLettres = mot.length();
         this.nbLettresTrouvees = 0;
         this.lettresAffichees = new char[this.nbLettres];
         this.lettres = new char[this.nbLettres];
+        mot = mot.toUpperCase();
+
         for (int i = 0; i < this.nbLettres; i++) {
             this.lettresAffichees[i] = '_';
-            this.lettres[i] = mot.toUpperCase().charAt(i);
+            this.lettres[i] = mot.charAt(i);
             if (this.lettres[i] == 'É' || this.lettres[i] == 'È' || this.lettres[i] == 'Ê' || this.lettres[i] == 'Ë') {
                 this.lettres[i] = 'E';
             } else if (this.lettres[i] == 'À' || this.lettres[i] == 'Â' || this.lettres[i] == 'Ä') {
@@ -66,6 +68,7 @@ public class Mot extends JLabel {
                 this.lettres[i] = 'C';
             }
         }
+        System.out.println("mot :    " + mot);
         setBounds(0, 0, 500, 500);
         // space up lettre
         this.setText(String.valueOf(this.lettresAffichees));
