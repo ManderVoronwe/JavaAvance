@@ -54,6 +54,10 @@ public class ListeDeMots implements Serializable {
                 fichier.readLine();
             }
             this.Mot = fichier.readLine();
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
             fichier.close();
         } catch (Exception e) {
             e.printStackTrace();
