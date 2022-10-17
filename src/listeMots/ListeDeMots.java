@@ -49,8 +49,7 @@ public class ListeDeMots implements Serializable {
     public void chooseWord() {
         int total_lines = countLines();
         int random = (int) (Math.random() * total_lines);
-        try (FileReader file = new FileReader(this.ListeDeMots, StandardCharsets.UTF_8);
-                BufferedReader fichier = new BufferedReader(file);) {
+        try (BufferedReader fichier = new BufferedReader(new FileReader(this.ListeDeMots, StandardCharsets.UTF_8));) {
 
             for (int i = 0; i < random; i++) {
                 fichier.readLine();

@@ -7,9 +7,6 @@ import visuel.Hangman;
 
 public class BoutonClavier extends javax.swing.JButton implements Bouton {
 
-    /**
-     * 
-     */
     private static final long serialVersionUID = -8143926993296614699L;
     private char lettre;
 
@@ -42,16 +39,6 @@ public class BoutonClavier extends javax.swing.JButton implements Bouton {
         this.setForeground(color);
     }
 
-    public char getLettre() {
-        return lettre;
-    }
-
-    public void setLettre(char lettre) {
-        this.lettre = lettre;
-        this.setText(String.valueOf(lettre));
-    }
-
-    // andle the event when the button is clicked and send the letter to the game
     public void addListener(visuel.Mot mot, Clavier clavier, Hangman hangman) {
         this.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,22 +52,7 @@ public class BoutonClavier extends javax.swing.JButton implements Bouton {
         });
     }
 
-    public void removeListener() {
-        for (java.awt.event.ActionListener al : this.getActionListeners()) {
-            this.removeActionListener(al);
-        }
-    }
-
-    public void disableListener() {
-        this.setEnabled(false);
-    }
-
-    public void enableListener() {
-        this.setEnabled(true);
-    }
-
     public void reset() {
         this.changeColor();
-        this.enableListener();
     }
 }
